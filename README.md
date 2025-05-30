@@ -7,11 +7,7 @@ minfy_db(> email VARCHAR(100),
 minfy_db(> date_of_birth DATE );
 CREATE TABLE
 minfy_db=> \\dt
-invalid command \
-Try \? for help.
-minfy_db=> \\d students
-invalid command \
-Try \? for help.
+
 minfy_db=> \d students
                          Table "public.students"
     Column     |          Type          | Collation | Nullable | Default
@@ -456,14 +452,6 @@ CREATE TABLE
 minfy_db=> INSERT INTO students (first_name, last_name, email, date_of_birth)
 minfy_db-> VALUES ('Alice', 'Smith', 'alice@example.com', '2003-05-15');
 INSERT 0 1
-minfy_db=> INSERT INTO students (last_name, email, date_of_birth)
-minfy_db-> VALUES ('Jones', 'nulltest@example.com', '2004-01-01');
-ERROR:  null value in column "first_name" of relation "students" violates not-null constraint
-DETAIL:  Failing row contains (2, null, Jones, nulltest@example.com, 2004-01-01, null).
-minfy_db=> INSERT INTO students (first_name, last_name, email, date_of_birth)
-minfy_db-> VALUES ('Bob', 'Brown', 'alice@example.com', '2002-02-02');
-ERROR:  duplicate key value violates unique constraint "students_email_key"
-DETAIL:  Key (email)=(alice@example.com) already exists.
 minfy_db=> INSERT INTO students (student_id, first_name, last_name, email, date_of_birth)
 minfy_db-> VALUES (2, 'Another', 'User', 'test@test.com', '2001-01-01');
 INSERT 0 1
