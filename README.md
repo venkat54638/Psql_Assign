@@ -36,27 +36,12 @@ minfy_db=> \d students
 minfy_db=> ALTER TABLE students ADD COLUMN phone_number VARCHAR(20);
 ALTER TABLE
 minfy_db=> ALTER TABLE students DROP COLUMN phone_number VARCHAR(20);
-ERROR:  syntax error at or near "VARCHAR"
-LINE 1: ALTER TABLE students DROP COLUMN phone_number VARCHAR(20);
-                                                      ^
-minfy_db=> ALTER TABLE students DROP COLUMN phone_number;
+
 ALTER TABLE
 minfy_db=> INSERT INTO students (student_id, first_name, last_name, email, dob)
 minfy_db-> VALUES (1, 'Alice', 'Smith', 'alice.smith@example.com', '2003-05-15');
-ERROR:  column "dob" of relation "students" does not exist
-LINE 1: ...NTO students (student_id, first_name, last_name, email, dob)
-                                                                   ^
-minfy_db=>
-minfy_db=> INSERT INTO students (student_id, first_name, last_name, email, dob)
-minfy_db-> VALUES (2, 'Bob', 'Johnson', 'bob.johnson@example.com', '2002-08-22'),
-minfy_db->        (3, 'Charlie', 'Brown', 'charlie.brown@example.com', '2003-01-10');
-ERROR:  column "dob" of relation "students" does not exist
-LINE 1: ...NTO students (student_id, first_name, last_name, email, dob)
-                                                                   ^
-minfy_db=> INSERT INTO students (student_id, first_name, last_name, email, dob)
-minfy_db-> VALUES (1, 'Alice', 'Smith', 'alice.smith@example.com', '2003-05-15');
-ERROR:  column "dob" of relation "students" does not exist
-LINE 1: ...NTO students (student_id, first_name, last_name, email, dob)
+
+
                                                                    ^
 minfy_db=> INSERT INTO students (student_id, first_name, last_name, email, date_of_brith)
 minfy_db-> VALUES (1, 'Alice', 'Smith', 'alice.smith@example.com', '2003-05-15');
